@@ -9,5 +9,7 @@ export const AppRoot = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
+    overflow: hidden;
   }
 `

@@ -18,8 +18,9 @@ export const Nav = styled.nav`
 
   div {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     height: 44px;
+    margin: 0;
     margin-left: 65px;
 
     @media (max-width: 514px) {
@@ -36,12 +37,15 @@ export const Nav = styled.nav`
 
   h1 {
     font-weight: 600;
+    font-size: 2.5rem;
   }
 
   span {
+    align-self: flex-end;
     margin-left: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     font-weight: 300 !important;
+    font-size: 1.25rem;
   }
 `;
 
