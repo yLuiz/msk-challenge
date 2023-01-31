@@ -27,6 +27,11 @@ export const Nav = styled.nav`
       margin-left: 20px;
     }
 
+    @media (max-width: 316px) {
+      margin-bottom: 35px;
+      flex-direction: column;
+    }
+
   }
 
   h1, span {
@@ -68,5 +73,8 @@ export const CartButton = styled.button`
 
   @media (max-width: 514px) {
     margin-right: 10px;
+    width: 64px;
+    height: 36px;
+    padding: 10px;
   }
 `;

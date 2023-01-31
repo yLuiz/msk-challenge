@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { decrementProductInCart, decrementTotalValue, incrementProductInCart, incrementTotalValue, removeProductInCart, setTotalOfItems, toggleCart } from "../../features/cart/cart-reducer";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { Amount, Aside, CloseButton, Content, DeleteItemButton, Description, FooterCart, Image, List, ListItem, Price } from "./styles";
+import { Amount, Aside, CloseButton, Content, DeleteItemButton, Name, FooterCart, Image, List, ListItem, Price } from "./styles";
 
 const Cart = () => {
 
@@ -66,9 +66,9 @@ const Cart = () => {
                     <div>
                       <Image src={item.photo} alt="" />
                     </div>
-                    <Description>
-                      { item.description }
-                    </Description>
+                    <Name>
+                      { item.name }
+                    </Name>
                     <Amount>
                       <p>Qtd:</p>
                       <div>

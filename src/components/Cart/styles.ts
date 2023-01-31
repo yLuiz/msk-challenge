@@ -54,6 +54,11 @@ position: relative;
     font-weight: 700;
     width: 180px;
     margin: 36px 47px;
+
+    @media (max-width: 330px) {
+      font-size: 1.2rem;
+      max-width: 100px;
+    }
   }
 
   > div {
@@ -63,7 +68,7 @@ position: relative;
     
     width: 100%;
 
-    @media (max-width: 330px) {
+    @media (max-width: 256px) {
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -117,7 +122,8 @@ export const List = styled.ul`
   gap: 28px;
 
   @media(max-width: 470px) {
-    padding: 10px 20px;
+    padding: 10px 20px 90px;
+
   }
 `;
 
@@ -163,7 +169,7 @@ export const Image = styled.img`
   margin-right: 21px;
 `;
 
-export const Description = styled.div`
+export const Name = styled.div`
   max-width: 133px;
   font-size: 0.813rem;
 
@@ -181,7 +187,7 @@ export const Amount = styled.div`
   width: 50px;
   height: auto;
 
-  margin-right: 40px;
+  margin-right: 20px;
   
   p {
     padding: 0;
@@ -240,8 +246,9 @@ export const Amount = styled.div`
 `;
 
 export const Price = styled.div`
-  width: 62px;
-  margin-right: 15px;
+
+  margin-top: 10px;
+  min-width: 62px;
   font-weight: 700;
 `;
 
@@ -309,5 +316,13 @@ export const FooterCart = styled.footer`
     color: #FFF;
     height: 97px;
     width: 100%;
+
+    cursor: pointer;
+  }
+
+  p, span, button {
+    @media (max-width: 390px) {
+      font-size: 1.2rem !important;
+    }
   }
 `;

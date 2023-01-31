@@ -83,7 +83,7 @@ export const Description = styled.p`
   color: #2C2C2C;
   width: 100%;
   height: 25px;
-  margin-bottom: 12px;
+  margin: 0;
 
   overflow: hidden;
 `

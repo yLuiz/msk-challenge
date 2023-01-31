@@ -31,8 +31,8 @@ const INITIAL_STATE: InitialState = {
     {
       id: 1,
       brand: "Apple",
-      name: "Smart Watch",
-      description: "This is a smart watch",
+      name: "Apple Watch Series 4 GPS",
+      description: "This is a watch series",
       photo:
         "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp",
       price: '1000',
