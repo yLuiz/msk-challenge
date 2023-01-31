@@ -42,7 +42,7 @@ export const Aside = styled.aside`
 `;
 
 export const Content = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -67,6 +67,7 @@ position: relative;
     justify-content: space-between;
     
     width: 100%;
+    margin-top: -10px;
 
     @media (max-width: 256px) {
       justify-content: center;
@@ -100,6 +101,7 @@ export const List = styled.ul`
   padding-top: 20px;
   padding-bottom: 100px;
   margin-bottom: 100px;
+  margin-top: -20px;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -122,8 +124,7 @@ export const List = styled.ul`
   gap: 28px;
 
   @media(max-width: 470px) {
-    padding: 10px 20px 90px;
-
+    padding: 10px 20px 140px;
   }
 `;
 
