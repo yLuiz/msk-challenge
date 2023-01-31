@@ -165,7 +165,7 @@ export const Image = styled.img`
   height: 61px;
 
 
-  object-fit: cover;
+  object-fit: contain;
 
   margin-left: 23px;
   margin-right: 21px;
