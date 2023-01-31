@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.25",
     "@types/styled-components": "^5.1.26",
     "dotenv-webpack": "^8.0.1"
   }

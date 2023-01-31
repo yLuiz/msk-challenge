@@ -27,21 +27,7 @@ const INITIAL_STATE: InitialState = {
   showCart: false,
   totalValue: 0,
   totalOfItems: 0,
-  items: [
-    {
-      id: 1,
-      brand: "Apple",
-      name: "Apple Watch Series 4 GPS",
-      description: "This is a watch series",
-      photo:
-        "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp",
-      price: '1000',
-      priceInCart: 0,
-      quantity: 1,
-      createdAt: "2023-01-23T18:17:04.771Z",
-      updatedAt: "2023-01-23T18:17:04.771Z",
-    },
-  ],
+  items: [],
 };
 
 export const cartReducer = createReducer(INITIAL_STATE, {
@@ -50,7 +36,7 @@ export const cartReducer = createReducer(INITIAL_STATE, {
     return state;
   },
   [addProductInCart.type]: (state, action) => {
-    const itemId = action.payload.id + state.items[state.items.length - 1].id;
+    const itemId = action.payload.id;
 
     const alreadyInCart = state.items
       .map((item) => {
@@ -64,7 +50,7 @@ export const cartReducer = createReducer(INITIAL_STATE, {
       ...state,
       items: [
         ...state.items,
-        { ...action.payload, id: state.items.length + 1 },
+        { ...action.payload },
       ],
     };
     return state;

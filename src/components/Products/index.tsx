@@ -1,42 +1,28 @@
 import { useEffect, useState } from 'react';
 import { NumericFormat } from 'react-number-format';
 import { useDispatch } from 'react-redux';
-import api from '../../api/api';
 import buySVG from '../../assets/buy.svg';
-import { addProductInCart, incrementTotalValue, setTotalOfItems, toggleCart } from '../../features/cart/cart-reducer';
-import { getProducts } from '../../features/product/product-reducer';
+import { addProductInCart, incrementTotalValue, setTotalOfItems } from '../../features/cart/cart-reducer';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { IProduct, IProductResponse } from '../../interfaces/IProductResponse';
+import { IProduct } from '../../interfaces/IProductResponse';
+import { getAllProducts } from '../../store/fetchActions';
 import Skeleton from '../Skeleton';
 import { BuyButton, Description, Header, Image, Item, ItemDetails, List, Section } from './styles';
 
 const Products = () => {
 
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const queryParamsAPI = 'products?page=1&rows=10&sortBy=id&orderBy=ASC';
-
   const productsSelector = useAppSelector(state => {
     return state.products.data;
   });
 
-  const showCart = useAppSelector(state => {
-    return state.cart.showCart;
-   });
-
-  const dispatch = useDispatch();
+  const dispatch = useDispatch() as any;
 
   useEffect(() => {
 
-    dispatch(getProducts());
-    // api.get<IProductResponse>(queryParamsAPI)
-    //   .then(productsData => {
-    //     setProducts(productsData.data.products);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   })
+    dispatch(getAllProducts());
+    console.log(productsSelector)
 
-    setProducts(productsSelector)
+
   }, []);
 
 
@@ -49,10 +35,10 @@ const Products = () => {
   return (
     <>
       {
-        products.length ? 
+        productsSelector.length ? 
         <Section>  
           <List>
-            { products.map(product => (
+            { productsSelector.map(product => (
               <Item key={product.id}>
                 <ItemDetails>
                   <div>

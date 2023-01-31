@@ -6,8 +6,6 @@ interface IProductState {
     data: IProduct[];
 };
 
-const queryParamsAPI = 'products?page=1&rows=10&sortBy=id&orderBy=ASC';
-
 let initialStateProduct: IProductState = {
     data: [
         {
@@ -24,9 +22,21 @@ let initialStateProduct: IProductState = {
 };
 
 export const getProducts = createAction('GET_PRODUCTS');
+export const setAllProducts = createAction('SET_ALL_PRODUCTS');
 
 export const productReducer = createReducer(initialStateProduct, {
     [getProducts.type]: (state) => {
+        return state;
+    },
+    [setAllProducts.type]: (state, action) => {
+
+        // console.log(action.payload.products);
+
+        state = {
+            ...state,
+            data: action.payload.products
+        }
+
         return state;
     }
 });
