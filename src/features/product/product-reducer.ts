@@ -16,7 +16,7 @@ let initialStateProduct: IProductState = {
             name: 'Smart Watch',
             description: 'This is a smart watch',
             photo: "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp",
-            price: "1000",
+            price: '1000',
             createdAt: "2023-01-23T18:17:04.771Z",
             updatedAt: "2023-01-23T18:17:04.771Z"
         }

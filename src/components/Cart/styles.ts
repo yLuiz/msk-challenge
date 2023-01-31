@@ -1,29 +1,40 @@
 import styled, { keyframes } from "styled-components";
 
-const slide = keyframes`
-  100% {
-    /* max-width: 486px; */
-    transform: translateX(0px);
-
-  }
-`;
-
 export const Aside = styled.aside`
   position: absolute;
   top: 0;
   right: 0;
 
-  /* max-width: 0px; */
   max-width: 486px;
   
-
   width: 100%;
   height: 100%;
   transform: translateX(100%);
   background-color: #0F52BA;
 
   z-index: 9;
-  animation: ${slide} 1s forwards;
+  animation: ${(props: { animation: string }) => {
+    if (props.animation === 'slide')
+      return 'slide 1s forwards'
+    else if (props.animation === 'hide')
+      return 'hide 1s forwards';
+  }};
+
+  @keyframes slide {
+    100% {
+      /* max-width: 486px; */
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes hide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -124,9 +135,12 @@ export const ListItem = styled.li`
 `;
 
 export const Image = styled.img`
-  border: 1px solid black;
-  min-width: 50px;
-  min-height: 61px;
+  /* border: 1px solid #000; */
+  width: 50px;
+  height: 61px;
+
+
+  object-fit: cover;
 
   margin-left: 23px;
   margin-right: 21px;

@@ -3,7 +3,7 @@ import { NumericFormat } from 'react-number-format';
 import { useDispatch } from 'react-redux';
 import api from '../../api/api';
 import buySVG from '../../assets/buy.svg';
-import { addProductInCart, setTotalOfItems, toggleCart } from '../../features/cart/cart-reducer';
+import { addProductInCart, incrementTotalValue, setTotalOfItems, toggleCart } from '../../features/cart/cart-reducer';
 import { getProducts } from '../../features/product/product-reducer';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { IProduct, IProductResponse } from '../../interfaces/IProductResponse';
@@ -41,8 +41,9 @@ const Products = () => {
 
 
   function addProductToCart(product: IProduct) {
-    dispatch(addProductInCart({...product, quantity: 1}));
+    dispatch(addProductInCart({...product, quantity: 1, priceInCart: Number(product.price)}));
     dispatch(setTotalOfItems());
+    dispatch(incrementTotalValue());
   }
 
   return (
