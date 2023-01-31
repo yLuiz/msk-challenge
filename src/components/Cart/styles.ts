@@ -37,6 +37,7 @@ export const Aside = styled.aside`
     }
     100% {
       transform: translateX(100%);
+      display: none;
     }
   }
 `;

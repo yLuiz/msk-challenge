@@ -4,7 +4,7 @@ export const FooterContainer = styled.footer`
 
   box-sizing: border-box;
 
-  position: fixed;
+  position: absolute;
   bottom: 0;
 
   display: flex;
