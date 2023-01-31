@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { AppContainer } from './appStyle';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
@@ -7,7 +8,7 @@ import Skeleton from './components/Skeleton';
 
 function App() {
   return (
-    <div>
+    <AppContainer>
       <BrowserRouter>
         <Navbar />
         <Cart />
@@ -18,7 +19,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </div>
+    </AppContainer>
   );
 }
 

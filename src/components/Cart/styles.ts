@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const Aside = styled.aside`
   position: absolute;
@@ -6,13 +6,18 @@ export const Aside = styled.aside`
   right: 0;
 
   max-width: 486px;
+
+  display: flex;
+  flex-direction: column;
   
   width: 100%;
   height: 100%;
   transform: translateX(100%);
   background-color: #0F52BA;
+  margin-left: 80px;
 
   z-index: 9;
+
   animation: ${(props: { animation: string }) => {
     if (props.animation === 'slide')
       return 'slide 1s forwards'
@@ -22,7 +27,6 @@ export const Aside = styled.aside`
 
   @keyframes slide {
     100% {
-      /* max-width: 486px; */
       transform: translateX(0px);
     }
   }
@@ -38,9 +42,7 @@ export const Aside = styled.aside`
 `;
 
 export const Content = styled.div`
-
-  position: relative;
-
+position: relative;
   display: flex;
   flex-direction: column;
 
@@ -54,11 +56,17 @@ export const Content = styled.div`
     margin: 36px 47px;
   }
 
-  & > div {
+  > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
     width: 100%;
+
+    @media (max-width: 330px) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 `;
 
@@ -78,7 +86,6 @@ export const CloseButton = styled.button`
 `;
 
 export const List = styled.ul`
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,29 +93,32 @@ export const List = styled.ul`
   width: 100%;
   padding: 0;
   padding-top: 20px;
-  /* border: 1px solid #000; */
-  margin-bottom: 1000px;
+  padding-bottom: 100px;
+  margin-bottom: 100px;
 
-  min-height: 600px;
-  overflow: auto;
+  overflow-y: auto;
   overflow-x: hidden;
 
   ::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
+    width: 5px;
   }
 
   ::-webkit-scrollbar-track {
-    background: transparent;        /* color of the tracking area */
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
 
-    background-color: #2e67bc;    /* color of the scroll thumb */
-    border-radius: 5px;       /* roundness of the scroll thumb */
-    border: 1px solid #c1e4ff;  /* creates padding around scroll thumb */
+    background-color: #2e67bc;
+    border-radius: 5px;
+    border: 1px solid #c1e4ff;  
   }
 
   gap: 28px;
+
+  @media(max-width: 470px) {
+    padding: 10px 20px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -132,10 +142,17 @@ export const ListItem = styled.li`
 
   list-style: none;
 
+  @media (max-width: 418px) {
+    flex-wrap: wrap;
+    min-height: 200px;
+  }
+
+  @media (max-width: 330px) {
+  }
+
 `;
 
 export const Image = styled.img`
-  /* border: 1px solid #000; */
   width: 50px;
   height: 61px;
 
@@ -151,6 +168,10 @@ export const Description = styled.div`
   font-size: 0.813rem;
 
   margin-right: 9px;
+
+  @media (max-width: 418px) {
+    text-align: center;
+  }
 `;
 
 export const Amount = styled.div`
@@ -215,7 +236,6 @@ export const Amount = styled.div`
         border-left: 0.3px solid #BFBFBF;
       }
     }
-
   }
 `;
 
@@ -249,24 +269,22 @@ export const DeleteItemButton = styled.button`
 `;
 
 export const FooterCart = styled.footer`
-
   position: absolute;
   bottom: 0;
-  
   width: 100%;
 
   div {
-
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
     background-color: #0F52BA;
-    box-shadow: 0 15px 15px #000;
 
     p, span {
+      display: flex;
+      align-items: center;
       margin: 0;
-      margin-bottom: 42px;
+      height: 80px;
       padding: 0;
       color: #FFF;
     }
@@ -277,7 +295,6 @@ export const FooterCart = styled.footer`
     }
 
   }
-
 
   button {
     display: flex;

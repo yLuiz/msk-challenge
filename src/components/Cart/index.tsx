@@ -63,28 +63,28 @@ const Cart = () => {
                 items ? 
                 items.map(item => (
                   <ListItem key={item.id}>
-                  <div>
-                    <Image src={item.photo} alt="" />
-                  </div>
-                  <Description>
-                    { item.description }
-                  </Description>
-                  <Amount>
-                    <p>Qtd:</p>
                     <div>
-                      <button onClick={() => incrementICartItem(item.id)}>+</button>
-                      <span>{ item.quantity }</span>
-                      <button onClick={() => decrementICartItem(item.id)}>-</button>
+                      <Image src={item.photo} alt="" />
                     </div>
-                  </Amount>
-                  <Price>
-                    R${ item.priceInCart }
-                  </Price>
+                    <Description>
+                      { item.description }
+                    </Description>
+                    <Amount>
+                      <p>Qtd:</p>
+                      <div>
+                        <button onClick={() => incrementICartItem(item.id)}>+</button>
+                        <span>{ item.quantity }</span>
+                        <button onClick={() => decrementICartItem(item.id)}>-</button>
+                      </div>
+                    </Amount>
+                    <Price>
+                      R${ item.priceInCart }
+                    </Price>
 
-                  <DeleteItemButton onClick={() => { removeItemOfCart(item.id) }}>
-                    x
-                  </DeleteItemButton>
-                </ListItem>
+                    <DeleteItemButton onClick={() => { removeItemOfCart(item.id) }}>
+                      x
+                    </DeleteItemButton>
+                  </ListItem>
                 ))
                  : null
               }

@@ -6,7 +6,7 @@ export const Nav = styled.nav`
 
   z-index: 8;
 
-  width: 100vw;
+  width: calc(100%);
   height: 101px;
   background-color: #0F52BA;
 
