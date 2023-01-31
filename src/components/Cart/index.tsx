@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NumericFormat } from "react-number-format";
 import { useDispatch } from "react-redux";
 import { decrementProductInCart, decrementTotalValue, incrementProductInCart, incrementTotalValue, removeProductInCart, setTotalOfItems, toggleCart } from "../../features/cart/cart-reducer";
 import { useAppSelector } from "../../hooks/useAppSelector";
@@ -78,7 +79,7 @@ const Cart = () => {
                       </div>
                     </Amount>
                     <Price>
-                      R${ item.priceInCart }
+                      <NumericFormat value={Number(item.price)} thousandSeparator="." decimalSeparator=',' prefix='R$' displayType='text'/>
                     </Price>
 
                     <DeleteItemButton onClick={() => { removeItemOfCart(item.id) }}>

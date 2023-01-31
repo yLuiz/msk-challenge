@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  width: 100%;
+  height: 100vh;
+  margin-top: calc(300px);
 `;
 
 export const List = styled.ul`
@@ -12,8 +13,18 @@ export const List = styled.ul`
   
   grid-template-columns: repeat(4, min(217.56px));
   gap: 22.44px;
-  margin-top: calc(101px + 116px);
+
   padding: 0;
+  padding-top: 116px;
+  padding-bottom: 50px;
+  margin-top: -200px;
+  max-height: calc(100vh - 136px);
+  
+  overflow-y: auto !important;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (max-width: 1027px) {
 

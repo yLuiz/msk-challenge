@@ -7,18 +7,7 @@ interface IProductState {
 };
 
 let initialStateProduct: IProductState = {
-    data: [
-        {
-            id: 1,
-            brand: 'Apple',
-            name: 'Apple Watch Series 4 GPS',
-            description: 'This is a smart watch',
-            photo: "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/applewatch-series7.webp",
-            price: '1000',
-            createdAt: "2023-01-23T18:17:04.771Z",
-            updatedAt: "2023-01-23T18:17:04.771Z"
-        }
-    ],
+    data: [],
 };
 
 export const getProducts = createAction('GET_PRODUCTS');
@@ -29,9 +18,6 @@ export const productReducer = createReducer(initialStateProduct, {
         return state;
     },
     [setAllProducts.type]: (state, action) => {
-
-        // console.log(action.payload.products);
-
         state = {
             ...state,
             data: action.payload.products

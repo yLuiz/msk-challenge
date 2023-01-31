@@ -171,7 +171,7 @@ export const Image = styled.img`
 `;
 
 export const Name = styled.div`
-  max-width: 133px;
+  width: 133px;
   font-size: 0.813rem;
 
   margin-right: 9px;
@@ -248,9 +248,12 @@ export const Amount = styled.div`
 
 export const Price = styled.div`
 
-  margin-top: 10px;
-  min-width: 62px;
-  font-weight: 700;
+  span {
+    display: block;
+    margin-top: 10px;
+    min-width: 62px;
+    font-weight: 700;
+  }
 `;
 
 export const DeleteItemButton = styled.button`
