@@ -1,14 +1,41 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { decrementProductInCart, incrementProductInCart, removeProductInCart, setTotalOfItems, toggleCart } from "../../features/cart/cart-reducer";
+import { useAppSelector } from "../../hooks/useAppSelector";
 import { Amount, Aside, CloseButton, Content, DeleteItemButton, Description, FooterCart, Image, List, ListItem, Price } from "./styles";
 
 const Cart = () => {
+  const show = useAppSelector(state => {
+    return state.cart.showCart
+  });
 
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setShow(true);
-    }, 1000);
-  }, []);
+  const items = useAppSelector(state => {
+    return state.cart.items;
+  });
+
+  const totalValueOfCart = useAppSelector( state => {
+    return state.cart.totalValue;
+  })
+
+  const dispatch = useDispatch();
+
+  function closeCart() {
+    dispatch(toggleCart());
+  }
+
+  function removeItemOfCart(id: number) {
+    dispatch(removeProductInCart({ id }));
+    dispatch(setTotalOfItems());
+  }
+
+  function incrementICartItem(id: number) {
+    dispatch(incrementProductInCart({ id }));
+
+  }
+
+  function decrementICartItem(id: number) {
+    dispatch(decrementProductInCart({ id }));
+  }
 
   return (
     <>
@@ -18,33 +45,38 @@ const Cart = () => {
           <Content>
             <div>
               <p>Carrinho de compras</p>
-              <CloseButton onClick={() => {setShow(false)}} >X</CloseButton>
+              <CloseButton onClick={closeCart}>X</CloseButton>
             </div>
             <List>
-              <ListItem>
-                <div>
-                  <Image src="" alt="" />
-                </div>
-                <Description>
-                  Apple Watch Series 4 GPS
-                </Description>
-                <Amount>
-                  <p>Qtd:</p>
+              {
+                items ? 
+                items.map(item => (
+                  <ListItem key={item.id}>
                   <div>
-                    <button>+</button>
-                    <span>1</span>
-                    <button>-</button>
+                    <Image src="" alt="" />
                   </div>
-                </Amount>
-                <Price>
-                  R$100
-                </Price>
+                  <Description>
+                    { item.description }
+                  </Description>
+                  <Amount>
+                    <p>Qtd:</p>
+                    <div>
+                      <button onClick={() => incrementICartItem(item.id)}>+</button>
+                      <span>{ item.quantity }</span>
+                      <button onClick={() => decrementICartItem(item.id)}>-</button>
+                    </div>
+                  </Amount>
+                  <Price>
+                    R${ item.price }
+                  </Price>
 
-                <DeleteItemButton>
-                  x
-                </DeleteItemButton>
-
-              </ListItem>
+                  <DeleteItemButton onClick={() => { removeItemOfCart(item.id) }}>
+                    x
+                  </DeleteItemButton>
+                </ListItem>
+                ))
+                 : null
+              }
             </List>
             <FooterCart>
               <div>
@@ -52,7 +84,7 @@ const Cart = () => {
                   Total:
                 </p>
                 <span>
-                  R$100
+                  R${totalValueOfCart}
                 </span>
               </div>
               <button>

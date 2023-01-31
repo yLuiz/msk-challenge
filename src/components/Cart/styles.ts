@@ -67,12 +67,35 @@ export const CloseButton = styled.button`
 `;
 
 export const List = styled.ul`
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   padding: 0;
-  
+  padding-top: 20px;
+  /* border: 1px solid #000; */
+  margin-bottom: 1000px;
+
+  min-height: 600px;
+  overflow: auto;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+
+  ::-webkit-scrollbar-thumb {
+
+    background-color: #2e67bc;    /* color of the scroll thumb */
+    border-radius: 5px;       /* roundness of the scroll thumb */
+    border: 1px solid #c1e4ff;  /* creates padding around scroll thumb */
+  }
 
   gap: 28px;
 `;
@@ -93,7 +116,7 @@ export const ListItem = styled.li`
   border-radius: 8px;
   max-width: 379px;
   width: 100%;
-  height: 95px;
+  min-height: 95px;
   padding: 0;
 
   list-style: none;
@@ -224,6 +247,8 @@ export const FooterCart = styled.footer`
     align-items: center;
     justify-content: space-around;
     width: 100%;
+    background-color: #0F52BA;
+    box-shadow: 0 15px 15px #000;
 
     p, span {
       margin: 0;
