@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom'
 import { Nav, CartButton } from './styles';
 import cartLogo from '../../assets/cart.svg';
 import { useDispatch } from 'react-redux';
-import { toggleCart } from '../../features/cart/cart-reducer';
+import { CartActions } from '../../features/cart/cart-actions';
 import { useAppSelector } from '../../hooks/useAppSelector';
 
 const Navbar = () => {
 
+  const { toggleCart } = CartActions;
   const dispatch = useDispatch();
   const totalOfItemsInCart = useAppSelector(state => {
     return state.cart.totalOfItems;

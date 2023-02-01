@@ -1,6 +1,6 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
-import { IProduct, IProductResponse } from '../../interfaces/IProductResponse';
-import api from '../../api/api';
+import { createReducer } from '@reduxjs/toolkit';
+import { IProduct } from '../../interfaces/IProductResponse';
+import { ProductActions } from './product-actions';
 
 interface IProductState {
     data: IProduct[];
@@ -10,8 +10,10 @@ let initialStateProduct: IProductState = {
     data: [],
 };
 
-export const getProducts = createAction('GET_PRODUCTS');
-export const setAllProducts = createAction('SET_ALL_PRODUCTS');
+const {
+    getProducts,
+    setAllProducts
+} = ProductActions;
 
 export const productReducer = createReducer(initialStateProduct, {
     [getProducts.type]: (state) => {
@@ -22,7 +24,6 @@ export const productReducer = createReducer(initialStateProduct, {
             ...state,
             data: action.payload.products
         }
-
         return state;
     }
 });

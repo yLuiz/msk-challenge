@@ -1,19 +1,22 @@
 import { createReducer, createAction } from "@reduxjs/toolkit";
 import { IProduct } from "../../interfaces/IProductResponse";
+import { CartActions } from "./cart-actions";
 
 interface IProductCart extends IProduct {
   quantity: number;
   priceInCart: number;
 }
 
-export const toggleCart = createAction("TOGGLE_CART");
-export const addProductInCart = createAction<IProductCart>("ADD_PRODUCT_IN_CART");
-export const removeProductInCart = createAction<{ id: number }>("REMOVE_PRODUCT_IN_CART");
-export const incrementProductInCart = createAction<{ id: number }>("INCREMENT_PRODUCT_IN_CART");
-export const decrementProductInCart = createAction<{ id: number }>("DECREMENT_PRODUCT_IN_CART");
-export const incrementTotalValue = createAction("INCREMENT_TOTAL_VALUE");
-export const decrementTotalValue = createAction<{ id: number }>("DECREMENT_TOTAL_VALUE");
-export const setTotalOfItems = createAction("SET_TOTAL_OF_ITEMS");
+const {
+  addProductInCart,
+  decrementProductInCart,
+  decrementTotalValue,
+  incrementProductInCart,
+  incrementTotalValue,
+  removeProductInCart,
+  setTotalOfItems,
+  toggleCart
+} = CartActions;
 
 interface InitialState {
   showCart: boolean;

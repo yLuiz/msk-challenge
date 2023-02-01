@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
 import { NumericFormat } from "react-number-format";
 import { useDispatch } from "react-redux";
-import { decrementProductInCart, decrementTotalValue, incrementProductInCart, incrementTotalValue, removeProductInCart, setTotalOfItems, toggleCart } from "../../features/cart/cart-reducer";
+import { CartActions } from "../../features/cart/cart-actions";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { Amount, Aside, CloseButton, Content, DeleteItemButton, Name, FooterCart, Image, List, ListItem, Price } from "./styles";
 
 const Cart = () => {
 
   const [animation, setAnimation] = useState('');
+
+  const {
+    toggleCart,
+    removeProductInCart,
+    setTotalOfItems,
+    incrementProductInCart,
+    incrementTotalValue,
+    decrementProductInCart,
+    decrementTotalValue
+  } = CartActions;
 
   const show = useAppSelector(state => {
     return state.cart.showCart
@@ -79,7 +89,7 @@ const Cart = () => {
                       </div>
                     </Amount>
                     <Price>
-                      <NumericFormat value={Number(item.price)} thousandSeparator="." decimalSeparator=',' prefix='R$' displayType='text'/>
+                      <NumericFormat value={Number(item.priceInCart)} thousandSeparator="." decimalSeparator=',' prefix='R$' displayType='text'/>
                     </Price>
 
                     <DeleteItemButton onClick={() => { removeItemOfCart(item.id) }}>

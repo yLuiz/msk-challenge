@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { NumericFormat } from 'react-number-format';
 import { useDispatch } from 'react-redux';
 import buySVG from '../../assets/buy.svg';
-import { addProductInCart, incrementTotalValue, setTotalOfItems } from '../../features/cart/cart-reducer';
+import { CartActions } from '../../features/cart/cart-actions';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { IProduct } from '../../interfaces/IProductResponse';
 import { getAllProducts } from '../../store/fetchActions';
@@ -14,6 +14,12 @@ const Products = () => {
   const productsSelector = useAppSelector(state => {
     return state.products.data;
   });
+
+  const {
+    addProductInCart,
+    setTotalOfItems,
+    incrementTotalValue
+  } = CartActions
 
   const dispatch = useDispatch() as any;
 
