@@ -106,7 +106,7 @@ const Cart = () => {
                   Total:
                 </p>
                 <span>
-                  R${totalValueOfCart}
+                  <NumericFormat value={Number(totalValueOfCart)} thousandSeparator="." decimalSeparator=',' prefix='R$' displayType='text'/>
                 </span>
               </div>
               <button>
