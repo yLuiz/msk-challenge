@@ -70,9 +70,18 @@ export const Content = styled.div`
     width: 100%;
     margin-top: -10px;
 
+    
+
     @media (max-width: 256px) {
       justify-content: center;
-      flex-wrap: wrap;
+
+      p {
+        width: 100px;
+        font-size: 1rem;
+        margin-right: 10px;
+      }
+
+      /* flex-wrap: wrap; */
     }
   }
 `;
@@ -152,12 +161,12 @@ export const ListItem = styled.li`
 
   @media (max-width: 418px) {
     flex-wrap: wrap;
-    min-height: 200px;
+    min-height: 150px;
   }
 
-  @media (max-width: 330px) {
+  @media (max-width: 326px) {
+    min-height: 180px;
   }
-
 `;
 
 export const Image = styled.img`
