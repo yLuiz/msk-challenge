@@ -95,6 +95,7 @@ export const Description = styled.p`
   width: 100%;
   height: 25px;
   margin: 0;
+  margin-top: -10px;
 
   overflow: hidden;
 `

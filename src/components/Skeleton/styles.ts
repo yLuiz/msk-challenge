@@ -149,7 +149,7 @@ export const Description = styled.p`
   width: 100%;
   height: 25px;
   border-radius: 4px;
-  margin-bottom: 12px;
+  margin-top: -5px;
 
   overflow: hidden;
   text-overflow: ellipsis;
