@@ -294,8 +294,11 @@ export const FooterCart = styled.footer`
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding-bottom: 40px;
-  background-color: #000;
+  
+  @media (pointer: coarse) {
+    padding-bottom: 45px;
+    background-color: #000;
+  }
 
   div {
     display: flex;
