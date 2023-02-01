@@ -48,6 +48,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   height: 100%;
+  padding-bottom: 30px;
 
   p {
     color: #FFF;
@@ -293,6 +294,8 @@ export const FooterCart = styled.footer`
   position: absolute;
   bottom: 0;
   width: 100%;
+  padding-bottom: 30px;
+  background-color: #000;
 
   div {
     display: flex;
