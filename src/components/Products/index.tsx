@@ -24,11 +24,7 @@ const Products = () => {
   const dispatch = useDispatch() as any;
 
   useEffect(() => {
-
     dispatch(getAllProducts());
-    console.log(productsSelector)
-
-
   }, []);
 
 

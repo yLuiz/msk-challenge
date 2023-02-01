@@ -96,8 +96,13 @@ export const Description = styled.p`
   height: 25px;
   margin: 0;
   margin-top: -10px;
+  padding: 10px 0;
 
-  overflow: hidden;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const Header = styled.div`
