@@ -110,7 +110,7 @@ export const List = styled.ul`
   width: 100%;
   padding: 0;
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 120px;
   margin-bottom: 100px;
   margin-top: -20px;
 
@@ -294,7 +294,7 @@ export const FooterCart = styled.footer`
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   background-color: #000;
 
   div {
@@ -317,7 +317,6 @@ export const FooterCart = styled.footer`
       font-weight: 700;
       font-size: 1.75rem;
     }
-
   }
 
   button {
