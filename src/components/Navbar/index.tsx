@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
 
       <CartButton onClick={showCart}>
-        <img src={cartLogo} alt="" />
+        <img src={cartLogo} alt="Carrinho" />
         <p>{totalOfItemsInCart}</p>
       </CartButton>
     </Nav>
