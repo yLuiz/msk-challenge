@@ -67,7 +67,7 @@ const Cart = () => {
           <Content>
             <div>
               <p>Carrinho de compras</p>
-              <CloseButton onClick={closeCart}>X</CloseButton>
+              <CloseButton data-testid="close-button" onClick={closeCart}>X</CloseButton>
             </div>
             <List>
               {
@@ -92,7 +92,7 @@ const Cart = () => {
                       <NumericFormat value={Number(item.priceInCart)} thousandSeparator="." decimalSeparator=',' prefix='R$' displayType='text'/>
                     </Price>
 
-                    <DeleteItemButton onClick={() => { removeItemOfCart(item.id) }}>
+                    <DeleteItemButton data-testid="remove-item-button" onClick={() => { removeItemOfCart(item.id) }}>
                       x
                     </DeleteItemButton>
                   </ListItem>
